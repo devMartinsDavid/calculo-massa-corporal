@@ -1,0 +1,125 @@
+/* Estilos gerais para o corpo da página */
+body {
+    overflow: hidden;
+    background-color: #013945;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o SVG e seu contêiner */
+
+.container-geral {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-geral #animation-heart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#animation-heart #mainSVG #pulseLine {
+    stroke: #C7F8E4;
+    stroke-width: 4px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Estilos para o contêiner do formulário */
+.container-geral #container-geral-form {
+    position: absolute;
+    padding: 1%;
+    margin-left: 60%;
+    height: 50%;
+    width: 20%;
+    background-color: #7b9b0a;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    opacity: 0.9;
+    border: 1px solid rgb(247, 243, 243);
+}
+
+.container-form .form-title {
+    font-family: cursive;
+}
+
+.container-form #imcForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-form #imcForm input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3 ease;
+}
+
+.container-form #imcForm input[type="submit"]:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    opacity: 0.9;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal-close {
+    color: #fa0f0f;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container-geral #container-bonequinho {
+    position: static;
+    float: left;
+    height: 50%;
+    width: 100%;
+}
+
+#bonequinho {
+    height: 100%;
+    width: 100%;
+    transform: translate(23%);
+}
