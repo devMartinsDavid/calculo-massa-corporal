@@ -1,17 +1,17 @@
 const select = s => document.querySelector(s);
-    selectAll = s =>  document.querySelectorAll(s);
+selectAll = s => document.querySelectorAll(s);
 
 let mainSVG = select('#mainSVG'),
-      pulseLine = select('#pulseLine'),
-      numPoints = 400,
-      width = numPoints * 2,
-    allPoints = []
+  pulseLine = select('#pulseLine'),
+  numPoints = 400,
+  width = numPoints * 2,
+  allPoints = []
 
 gsap.set('svg', {
   visibility: 'visible'
 })
 
-for(let i = 0; i < numPoints; i++) {
+for (let i = 0; i < numPoints; i++) {
   let p = pulseLine.points.appendItem(mainSVG.createSVGPoint())
   p.y = 320;
   allPoints.push(p)

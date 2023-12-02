@@ -1,15 +1,13 @@
 document.getElementById('imcForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita o comportamento padrão de recarregar a página ao enviar o formulário
+    event.preventDefault();
 
-    // Obtém os valores de peso e altura
     var peso = parseFloat(document.getElementById('peso').value);
     var altura = parseFloat(document.getElementById('altura').value);
-
-    // Calcula o IMC
     var imc = peso / (altura * altura);
     var resultado = 'Seu IMC é: ' + imc.toFixed(2) + '<br>';
 
-    // Verifica a classificação com base no IMC
+    
+
     if (imc < 18.5) {
         resultado += 'Classificação: Abaixo do peso';
     } else if (imc >= 18.5 && imc < 24.9) {
@@ -24,23 +22,36 @@ document.getElementById('imcForm').addEventListener('submit', function(event) {
         resultado += 'Classificação: Obesidade Grau III (mórbida)';
     }
 
-    // Exibe o resultado no modal
-    document.getElementById('resultadoModal').innerHTML = resultado;
+    var resultadoElement = document.getElementById('resultadoModal');
+    resultadoElement.innerHTML = ''; // Limpa o conteúdo
 
     // Mostra o modal
     var modal = document.getElementById('myModal');
     modal.style.display = 'block';
 
-    // Fecha o modal ao clicar no botão de fechar
     var closeButton = document.getElementsByClassName('modal-close')[0];
     closeButton.onclick = function() {
         modal.style.display = 'none';
     }
 
-    // Fecha o modal ao clicar fora da área do modal
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
     }
+
+    // Adiciona animação com GSAP ao mostrar o modal
+    gsap.from(modal, { opacity: 0, duration: 0.9 });
+
+    // Configuração do efeito de texto digitado com Typed.js
+    var options = {
+        strings: [resultado],
+        typeSpeed: 50, // Velocidade de digitação em milissegundos
+        showCursor: true, // Define se o cursor piscará enquanto digita
+        // cursorChar: '|',
+        autoInsertCas: true,
+        prependCursor: true,
+    };
+    
+    new Typed(resultadoElement, options);
 });

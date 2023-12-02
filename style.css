@@ -1,31 +1,37 @@
 /* Estilos gerais para o corpo da página */
-body {
-    overflow: hidden;
+body,
+html {
     background-color: #013945;
-    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Estilos para o SVG e seu contêiner */
-
 .container-geral {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container-geral #animation-heart {
-    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: auto;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
-#animation-heart #mainSVG #pulseLine {
+#animation-heart {
+    position: absolute;
+    margin-top: 20%;
+    width: 100vh;
+    height: auto;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transform: translate(20%, -20%);
+}
+
+#pulseLine {
     stroke: #C7F8E4;
     stroke-width: 4px;
     fill: none;
@@ -34,12 +40,12 @@ body {
 }
 
 /* Estilos para o contêiner do formulário */
-.container-geral #container-geral-form {
-    position: absolute;
-    padding: 1%;
-    margin-left: 60%;
-    height: 50%;
-    width: 20%;
+#container-geral-form {
+    margin-top: 10%;
+    width: 45%;
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 20px;
     background-color: #7b9b0a;
     color: white;
     text-align: center;
@@ -47,13 +53,14 @@ body {
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
     opacity: 0.9;
     border: 1px solid rgb(247, 243, 243);
+    margin-bottom: 20px;
 }
 
-.container-form .form-title {
+.form-title {
     font-family: cursive;
 }
 
-.container-form #imcForm {
+#imcForm {
     display: flex;
     flex-direction: column;
 }
@@ -66,7 +73,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3 ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .container-form #imcForm input[type="submit"]:hover {
@@ -111,15 +118,91 @@ body {
     cursor: pointer;
 }
 
-.container-geral #container-bonequinho {
-    position: static;
-    float: left;
-    height: 50%;
-    width: 100%;
+#container-bonequinho {
+    width: 50%;
+    margin: 10vh auto 20% -4%;
+    text-align: center;
 }
 
 #bonequinho {
-    height: 100%;
     width: 100%;
-    transform: translate(23%);
+    height: auto;
+}
+
+@media screen and (max-width: 649px) {
+    html {
+        height: 99%;
+    }
+
+    .modal-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row-reverse;
+        width: 100%;
+        height: 50%;
+        opacity: 0.8;
+    }
+
+    .modal-close {
+        position: absolute;
+        margin-left: 73%;
+        margin-bottom: 80%;
+        padding: 20px;
+        background-color: #fa0f0f;
+        color: white;
+        border-radius: 20px;
+        box-shadow: 0 0 10px 5px rgba(245, 106, 106, 0.5);
+    }
+
+    #resultadoModal {
+        position: relative;
+        align-items: center;
+        margin-right: 25%;
+    }
+
+    #container-geral-form {
+        position: relative;
+        width: 100%;
+        margin-top: 35%;
+    }
+
+    .container-geral {
+        display: flex;
+        align-items: center;
+    }
+
+    #container-bonequinho {
+        transform: translate(10%, -100%);
+        width: 100%;
+        height: 50px;
+        /* transform: perspective(1000px) rotateY(45deg); */
+    }
+
+    #animation-heart {
+        position: absolute;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 850px) {
+    .container-geral {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container-bonequinho {
+        width: 50%;
+        margin-top: 32%;
+        /* max-width: 300px; */
+        margin-bottom: 20px;
+    }
+
+    #animation-heart {
+        position: absolute;
+        margin-top: 40%;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0px;
+        transform: translate(0, 0);
+    }
 }
